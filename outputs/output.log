@@ -1,0 +1,404 @@
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 1
+
+    1. Create a new student
+    2. Update details of a student
+    3. Remove a student
+    4. Generate report of a student
+
+    : 1
+		Student ID: IT9624
+		Student Name: Kartik Joshi
+		Class Roll No: B-22
+		Batch ID: IT96
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 1
+
+    1. Create a new student
+    2. Update details of a student
+    3. Remove a student
+    4. Generate report of a student
+
+    : 2
+		Student ID: ECE1029
+		Student Name: Kanav Sagar
+		Class Roll No: A-43
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 1
+
+    1. Create a new student
+    2. Update details of a student
+    3. Remove a student
+    4. Generate report of a student
+
+    : 3
+		Student ID: IT9266
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 1
+
+    1. Create a new student
+    2. Update details of a student
+    3. Remove a student
+    4. Generate report of a student
+
+    : 4
+		Student ID: CSE0466
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 2
+
+    1. Create a new course
+    2. View performance of all students
+    3. Create course statistics
+
+    : 1
+		Course ID: C011
+		Course Name: Robotics
+
+			Class Roll Number: D-56
+			Student Name: Yashvi Khurana
+			Marks: 89
+
+			Class Roll Number: F-92
+			Student Name: Saksham Khosla
+			Marks: 94
+
+			Class Roll Number: 
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 2
+
+    1. Create a new course
+    2. View performance of all students
+    3. Create course statistics
+
+    : 2
+		Course: Mechanics
+			 Student(roll='C-63', name='Anya Chawla', marks=84.0)
+			 Student(roll='E-00', name='Gatik Hayer', marks=96.0)
+			 Student(roll='G-08', name='Faiyaz Tella', marks=79.0)
+			 Student(roll='B-61', name='Neysa Tandon', marks=73.0)
+			 Student(roll='A-20', name='Yashvi Acharya', marks=78.0)
+			 Student(roll='B-69', name='Zara Badal', marks=67.0)
+			 Student(roll='H-95', name='Stuvan Devi', marks=96.0)
+			 Student(roll='C-34', name='Samarth Agarwal', marks=100.0)
+			 Student(roll='A-82', name='Hiran Mandal', marks=73.0)
+			 Student(roll='C-71', name='Shlok Bir', marks=87.0)
+			 Student(roll='F-62', name='Prerak Raju', marks=84.0)
+			 Student(roll='F-18', name='Siya Hegde', marks=80.0)
+			 Student(roll='F-84', name='Jivin Varty', marks=77.0)
+			 Student(roll='G-25', name='Mahika Golla', marks=34.0)
+			 Student(roll='C-29', name='Priyansh Walia', marks=71.0)
+			 Student(roll='D-74', name='Hazel Gala', marks=67.0)
+			 Student(roll='C-58', name='Hridaan Bains', marks=44.0)
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 2
+
+    1. Create a new course
+    2. View performance of all students
+    3. Create course statistics
+
+    : 3
+		Course: C006
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 3
+
+    1. Create a new batch
+    2. View list of students in a batch
+    3. View list of courses taught in a batch
+    4. View performance of a batch
+    5. Create pie chart of percentage of all students
+
+    : 1
+		Batch ID: IT22
+		Batch Name: IT 2022-2026
+		Department Name: IT
+			Enter the courses for IT22
+				: C005
+				: C010
+				: 
+			Enter the students for IT22
+				: IT2245
+				: IT2234
+				: IT2289
+				: 
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 3
+
+    1. Create a new batch
+    2. View list of students in a batch
+    3. View list of courses taught in a batch
+    4. View performance of a batch
+    5. Create pie chart of percentage of all students
+
+    : 2
+		Batch ID: IT12
+		 ['IT1206', 'IT1231']
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 3
+
+    1. Create a new batch
+    2. View list of students in a batch
+    3. View list of courses taught in a batch
+    4. View performance of a batch
+    5. Create pie chart of percentage of all students
+
+    : 3
+		Batch ID: CSS E04 5
+			 ['C001', 'C002', 'C003', 'C006', 'C008', 'C009']
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 3
+
+    1. Create a new batch
+    2. View list of students in a batch
+    3. View list of courses taught in a batch
+    4. View performance of a batch
+    5. Create pie chart of percentage of all students
+
+    : 4
+		Batch ID: CSE92
+			 Student(roll='G-66', name='Misha Ghose', percentage=66.0)
+			 Student(roll='C-30', name='Onkar Baral', percentage=74.16666666666667)
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 3
+
+    1. Create a new batch
+    2. View list of students in a batch
+    3. View list of courses taught in a batch
+    4. View performance of a batch
+    5. Create pie chart of percentage of all students
+
+    : 5
+		Batch ID: ECE15
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 4
+
+    1. Create a new department
+    2. View batches of a department
+    3. View average performance of batches of a department
+    4. Create statistics of a department
+
+    :1
+		Department ID: BA
+		Department Name: Business Administration
+			Enter the batches for BA
+				: BA22
+				: BA89
+				: BA04
+				: 
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 4
+
+    1. Create a new department
+    2. View batches of a department
+    3. View average performance of batches of a department
+    4. Create statistics of a department
+
+    :2
+		Department ID: CSE
+			 ['CSE00', 'CSE01', 'CSE02', 'CSE04', 'CSE05', 'CSE08', 'CSE09', 'CSE13', 'CSE14', 'CSE21', 'CSE91', 'CSE92', 'CSE93', 'CSE94', 'CSE95', 'CSE96', 'CSE97', 'CSE98']
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 4
+
+    1. Create a new department
+    2. View batches of a department
+    3. View average performance of batches of a department
+    4. Create statistics of a department
+
+    :3
+		Department ID: ECE
+Performance(batch='ECE02', average=69.0)
+Performance(batch='ECE05', average=63.0)
+Performance(batch='ECE06', average=57.0)
+Performance(batch='ECE10', average=61.2)
+Performance(batch='ECE11', average=66.4)
+Performance(batch='ECE13', average=76.8)
+Performance(batch='ECE15', average=69.6)
+Performance(batch='ECE19', average=66.0)
+Performance(batch='ECE90', average=80.0)
+Performance(batch='ECE97', average=73.6)
+Performance(batch='ECE98', average=74.4)
+Performance(batch='ECE99', average=6.6)
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 4
+
+    1. Create a new department
+    2. View batches of a department
+    3. View average performance of batches of a department
+    4. Create statistics of a department
+
+    :4
+		Department ID: CSE
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 5
+
+    Hold an examination:
+
+			Enter the batches for exam
+				: IT12
+				: ECE99
+				: 
+Name of examination : Mid Semester
+ECE99
+	D-39
+		C001: 89
+		C004: 45
+		C006: 68
+		C008: 74
+		C009: 63
+IT12
+	B-61
+		C005: 87
+		C010: 96
+	A-20
+		C005: 74
+		C010: 96
+
+    1. View student perfomance in the examination
+    2. Create examination statistics
+
+    : 1
+[Performance(student_id='ECE9983', average=67.8), Performance(student_id='IT1206', average=91.5), Performance(student_id='IT1231', average=85.0)]
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 5
+
+    Hold an examination:
+
+			Enter the batches for exam
+				: IT12
+				: ECE99
+				: 
+Name of examination : End Semester
+ECE99
+	D-39
+		C001: 78
+		C004: 89
+		C006: 46
+		C008: 23
+		C009: 78
+IT12
+	B-61
+		C005: 94
+		C010: 86
+	A-20
+		C005: 74
+		C010: 19
+
+    1. View student perfomance in the examination
+    2. Create examination statistics
+
+    : 2
+
+1. Student
+2. Course
+3. Batch
+4. Department
+5. Examination
+
+: 

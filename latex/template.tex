@@ -1,0 +1,96 @@
+\usepackage[letterpaper,
+	left=1.5in,
+	right=0.88in,
+	top=1in,
+	bottom=0.89in,
+]{geometry}
+\usepackage{fontspec}
+\usepackage[fontsize=14pt]{fontsize}
+\setmainfont[Extension=.ttf,Path=fonts/timesnewroman-,UprightFont=regular,ItalicFont=italic,BoldFont=bold,BoldItalicFont=bolditalic]{}
+\usepackage{calc}
+\makeatletter
+	%set template parameters
+	\define@key{param}{title}{\newcommand\projtitle{#1}}
+	\define@key{param}{name of student}{\newcommand\student{#1}}
+	\define@key{param}{enrolment number}{\newcommand\enrolment{#1}}
+	\define@key{param}{section}{\newcommand\room{#1}}
+	\define@key{param}{class roll number}{\newcommand\roll{#1}}
+	\define@key{param}{stream}{\newcommand\stream{#1}}
+	\define@key{param}{name of the teachers}{\newcommand\teacher{#1}}
+	%format title
+	\def\@maketitle{
+		\newpage\null
+	\begin{center}
+		{\fontsize{22pt}{\baselineskip}\selectfont\bfseries\@title }
+		\par
+	\end{center}
+		\vspace{4\baselineskip}%skip 4 lines
+	}
+\makeatother
+%metadata
+\usepackage{hyperref}
+\hypersetup{
+	pdfinfo={
+		Author={Aritra Ghosal},
+		Title=-,
+		CreationDate=-,
+		Subject={Programming for Problem Solving},
+		Producer=-,
+		Creator=-,
+	}
+}
+%-----------
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\newcommand{\opening}[1]{
+	\setkeys{param}{#1}
+	\title{\MakeUppercase{\projtitle}}
+	\author{}
+	\date{}
+	\maketitle
+	\begin{center}
+		\fontsize{18pt}{\baselineskip}\selectfont
+		\bfseries
+		Submitted by\par
+		\newline
+	\end{center}
+	\newline
+	\textbf{Name of the Students: }\student\\
+	\textbf{Enrolment number: }\enrolment\\
+	\textbf{Section: }\room\\
+	\textbf{Class Roll Number: }\roll\\
+	\textbf{Stream: }\stream\\
+	\textbf{Subject: }Programming for Problem Solving\\
+	\textbf{Subject Code: }IVC101\\
+	\textbf{Department: }Basic Science and Humanities\\
+	\vspace{3\baselinsekip}
+	\begin{center}
+		\fontsize{16pt}{\baselineskip}\selectfont
+		Under the supervision of\\\teacher\\
+		\vspace{\baselineskip}
+		\textbf{Academic Year: 2022-26}\\
+		\vspace{\baselineskip}
+		\fontsize{14pt}{\baselineskip}\selectfont
+		\uppercase{project report submitted in partial fulfillment of the requirements for the first semester}
+		\includegraphics[width=1.32in,height=0.97in]{./instructions/IEM logo}\\
+		\textbf{\uppercase{department of basic science and humanities\\institute of engineering and management, kolkata}}
+		\newpage
+		\includegraphics[width=1.2in,height=0.85in]{./instructions/IEM logo}\\
+		\vspace{2\baselineskip}
+		\fontsize{18pt}{\baselineskip}\selectfont
+		\textbf{\uppercase{certificate of recommendation}}
+		\vspace{2\baselineskip}
+	\end{center}
+	\justify{\fontsize{18pt}{\baselineskip}We hereby recommed that the project prepared under our supervision by \student, entitled \projtitle{} be accepted in partial fulfillment of the requirements for the degree of partial fulfillment of the first semester.}
+	\\[8\baselineskip]
+	\fontsize{14pt}\selectfont
+	\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore
+	\hfill
+	\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\textunderscore\\
+	\hspace*{2em}Head of the Department\hfill{}Project Supervisor\hspace*{1.5em}\\
+	\hspace*{1em}Basic Sciences and Humanities\\
+	\hspace*{4em}IEM, Kolkata\\
+}
+\usepackage{sectsty}
+\sectionfont{\fontsize{24pt}{\baselineskip}\selectfont}
+\subsectionfont{\fontsize{18pt}{\baselineskip}\selectfont}
