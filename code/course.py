@@ -77,5 +77,5 @@ def course_statistics(**kwargs):
     ylabel('number of students')
     xticks([25,55,65,75,85,95],['F','E','D','C','B','A'])
     xlim(100,0)
-    savefig(f'outputs/Course Statistics-{val}.png')
+    savefig(f'outputs/Course Statistics-{val}.pdf')
     close()

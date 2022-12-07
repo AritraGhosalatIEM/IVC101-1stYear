@@ -63,5 +63,5 @@ def department_statistics(**kwargs):
     ylabel('Batch')
     name=tuple(kwargs.values())[0]
     title(name)
-    savefig(f'outputs/Department Statistics-{name}')
+    savefig(f'outputs/Department Statistics-{name}.pdf')
     close()

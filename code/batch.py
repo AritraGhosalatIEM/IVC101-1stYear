@@ -66,5 +66,5 @@ def batch_statistics(**kwargs):
     yticks([],[])
     style.use('Solarize_Light2')
     pie(slices,labels=roll_numbers,shadow=True,frame=True)
-    savefig(f'outputs/Batch Statistics-{name}.png')
+    savefig(f'outputs/Batch Statistics-{name}.pdf')
     close()

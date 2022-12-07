@@ -80,5 +80,5 @@ class Examination:
             (scatter(marks,self.batches,color=color,edgecolor='black') for marks,color in zip(self.data,colormap(linspace(0,1,len(self.data))))),
             self.courses
         )
-        savefig(f'outputs/{self.name} Exam.png')
+        savefig(f'outputs/{self.name} Exam.pdf')
         close()
