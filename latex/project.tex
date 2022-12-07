@@ -110,26 +110,27 @@
 		\subsubsection*{\texttt{batch.csv}}
 		\begin{longtable}{|c|c|c|c|c|}
 			\hline
-			\textbf{Batch ID}&\textbf{Batch Name}&\textbf{Department Name}&\textbf{List of Courses}&\textbf{List of Students}\hline
-			\csvreader{databases/batch.csv}{}{\csvcoli&\csvcolii&\csvcoliii&\ldots{}&\ldots{}\\\hline}
+			\textbf{Batch ID}&\textbf{Batch Name}&\textbf{Department Name}&\textbf{List of Courses}&\textbf{List of Students}
+			\csvreader{databases/batch.csv}{}{\\\hline\csvcoli&\csvcolii&\csvcoliii&\ldots{}&\ldots{}}
 		\end{longtable}
 		\subsubsection*{\texttt{course.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
-			\textbf{Course ID}&\textbf{Course Name}&\textbf{Marks Obtained}\hline
-			\csvreader{databases/batch.csv}{}{\csvcoli&\csvcolii&\csvcoliii\\\hline}
+			\textbf{Course ID}&\textbf{Course Name}&\textbf{Marks Obtained}
+			\csvreader{databases/batch.csv}{}{\\\hline\csvcoli&\csvcolii&\csvcoliii}
 		\end{longtable}
 		\subsubsection*{\texttt{department.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
-			\textbf{Department ID}&\textbf{Department Name}&\textbf{List of Batches}\hline
-			\csvreader{databases/department.csv}{}{\csvcoli&\csvcolii&\ldots{}\\\hline}
+			\textbf{Department ID}&\textbf{Department Name}&\textbf{List of Batches}
+			\csvreader{databases/department.csv}{}{\\\hline\csvcoli&\csvcolii&\ldots{}}
 		\end{longtable}
 		\subsubsection*{\texttt{student.csv}}
 		\begin{longtable}{|c|c|c|c|}
 			\hline
-			\textbf{Student ID}&\textbf{Name}&\textbf{Class Roll No}&\textbf{Batch ID}\\\hline
-			\csvreader{databases/student.csv}{}{\csvcoli&\csvcolii&\csvcoliii&\csvcoliv\\\hline}
+			\textbf{Student ID}&\textbf{Name}&\textbf{Class Roll No}&\textbf{Batch ID}
+			\csvreader{databases/student.csv}{}{\\\hline\csvcoli&\csvcolii&\csvcoliii&\csvcoliv}
+			\hline
 		\end{longtable}
 	\end{center}
 \section{E-R Diagram}
