@@ -112,18 +112,21 @@
 			\hline
 			\textbf{Batch ID}&\textbf{Batch Name}&\textbf{Department Name}&\textbf{List of Courses}&\textbf{List of Students}
 			\csvreader{databases/batch.csv}{}{\\\hline\csvcoli&\csvcolii&\csvcoliii&\ldots{}&\ldots{}}
+			\hline
 		\end{longtable}
 		\subsubsection*{\texttt{course.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
 			\textbf{Course ID}&\textbf{Course Name}&\textbf{Marks Obtained}
 			\csvreader{databases/batch.csv}{}{\\\hline\csvcoli&\csvcolii&\csvcoliii}
+			\hline
 		\end{longtable}
 		\subsubsection*{\texttt{department.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
 			\textbf{Department ID}&\textbf{Department Name}&\textbf{List of Batches}
 			\csvreader{databases/department.csv}{}{\\\hline\csvcoli&\csvcolii&\ldots{}}
+			\hline
 		\end{longtable}
 		\subsubsection*{\texttt{student.csv}}
 		\begin{longtable}{|c|c|c|c|}
