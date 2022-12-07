@@ -110,46 +110,26 @@
 		\subsubsection*{\texttt{batch.csv}}
 		\begin{longtable}{|c|c|c|c|c|}
 			\hline
-			Batch ID & Batch Name & Department Name & List of Courses & List of Students\hline
-			\csvreader[
-				late after line=\\\hline,
-				before reading={\catcode`\#=12},
-				after reading={\catcode`\#=6}]
-			{databases/batch.csv}{}
-			{\csvcoli & \csvcolii & \csvcoliii & \ldots{} & \ldots{}}
+			\textbf{Batch ID}&\textbf{Batch Name}&\textbf{Department Name}&\textbf{List of Courses}&\textbf{List of Students}\hline
+			\csvreader{databases/batch.csv}{}{\csvcoli&\csvcolii&\csvcoliii&\ldots{}&\ldots{}\\\hline}
 		\end{longtable}
 		\subsubsection*{\texttt{course.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
-			Course ID & Course Name & Marks Obtained\hline
-			\csvreader[
-				late after line=\\\hline,
-				before reading={\catcode`\#=12},
-				after reading={\catcode`\#=6}]
-			{databases/batch.csv}{}
-			{\csvcoli & \csvcolii & \csvcoliii}
+			\textbf{Course ID}&\textbf{Course Name}&\textbf{Marks Obtained}\hline
+			\csvreader{databases/batch.csv}{}{\csvcoli&\csvcolii&\csvcoliii\\\hline}
 		\end{longtable}
 		\subsubsection*{\texttt{department.csv}}
 		\begin{longtable}{|c|c|c|}
 			\hline
-			Department ID & Department Name & List of Batches\hline
-			\csvreader[
-				late after line=\\\hline,
-				before reading={\catcode`\#=12},
-				after reading={\catcode`\#=6}]
-			{databases/department.csv}{}
-			{\csvcoli & \csvcolii & \ldots{}}
+			\textbf{Department ID}&\textbf{Department Name}&\textbf{List of Batches}\hline
+			\csvreader{databases/department.csv}{}{\csvcoli&\csvcolii&\ldots{}\\\hline}
 		\end{longtable}
 		\subsubsection*{\texttt{student.csv}}
 		\begin{longtable}{|c|c|c|c|}
 			\hline
-			Student ID & Name & Class Roll No & Batch ID\hline
-			\csvreader[
-				late after line=\\\hline,
-				before reading={\catcode`\#=12},
-				after reading={\catcode`\#=6}]
-			{databases/student.csv}{}
-			{\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
+			\textbf{Student ID}&\textbf{Name}&\textbf{Class Roll No}&\textbf{Batch ID}\\\hline
+			\csvreader{databases/student.csv}{}{\csvcoli&\csvcolii&\csvcoliii&\csvcoliv\\\hline}
 		\end{longtable}
 	\end{center}
 \section{E-R Diagram}
