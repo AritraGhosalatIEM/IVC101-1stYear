@@ -61,7 +61,9 @@ databases/department.csv:databases/batch.csv
 	sed -i 's/:$$//' databases/department.csv
 data: databases/student.csv databases/course.csv databases/batch.csv databases/department.csv
 output:data code/batch.py code/course.py code/department.py code/examination.py code/main.py
-	asciinema rec --overwrite --raw -c 'code/main.py' outputs/output.log
+	script -c 'code/main.py' outputs/_output.log
+	head -n -2 outputs/_output.log | tail -n +2 > outputs/output.log
+	rm outputs/_output.log
 clean_data:
 	rm databases/*
 clean_output:
