@@ -8,7 +8,7 @@
 \usepackage{minted}
 \usemintedstyle{solarized-light}
 \usepackage{tikz}
-\usetikzlibrary{er}
+\usepackage{latex/er-diagram}%third party code from github: \usepackage{latex/er-diagram}
 \input{latex/template}
 \setlength{\parindent}{0pt}
 \setmonofont[Extension=.ttf,Path=fonts/,UprightFont=CONSOLAB,NFSSFamily=codefont]{}
@@ -66,6 +66,8 @@
 				.3 {Project Details.docx}. 
 				.3 {Project Report Template.docx}. 
 				.2 {latex}.
+				.3 {er-diagram.sty}.
+				.3 {er.tex}.
 				.3 {project.tex}.
 				.3 {template.tex}.
 				.2 {Makefile}. 
@@ -90,7 +92,8 @@
 
 		The \texttt{latex} directory contains all of the \LaTeX{} code used to build the project report (this file).
 		\texttt{template.tex} sets the default values necessary for the project report.
-		\texttt{project.tex} contains the code that is compiled into the project report. It contains the diagrams and sources the outputs along with the python code to include in the project report.\\
+		\texttt{project.tex} contains the code that is compiled into the project report. It contains sources the outputs and diagrams along with the python code to include in the project report.\\
+		\texttt{er.tex} contains the er diagram for the database and \texttt{er-diagram.sty} is a third party library used to draw the er diagram.
 
 		The \texttt{Makefile} contains the build system for the entire project. It specifies the dependencies for each component and runs the commands to create each component. The \texttt{Makefile} also contains code that generates the databases and fills them with random data modelling the system as closely as possible. This is the centre point of the entire project, it determines the order and execution of everything else in the project.\\
 
@@ -150,27 +153,7 @@
 		\end{longtable}
 	\end{center}
 \section{E-R Diagram}
-	\begin{tikzpicture}[node distance=7em]
-		\node[entity] (student) {Student};
-		\node[attribute] (studentid) [left of=student] {ID} edge (student);
-		\node[attribute] (name) [right of=student] {Name} edge (student);
-		\node[attribute] (roll) [above left of=student] {Class Roll Number} edge (student);
-		\node[attribute] (batchid) [above right of=student] {Batch ID} edge (student);
-		\node[entity] (batch) [below of=student] {Batch} edge (student);
-		\node[attribute] (batchid) [left of=batch] {ID} edge (batch);
-		\node[attribute] (batchname) [below left of=batch] {Batch Name} edge (batch);
-		\node[attribute] (departmentname) [below right of=batch] {Batch ID} edge (batch);
-		\node[attribute] (courses) [above right of=batch] {Courses} edge (batch);
-		\node[attribute] (students) [above left of=batch] {Students} edge (batch);
-		\node[entity] (course) [right of=batch] {Course};
-		\node[attribute] (courseid) [below right of=marks]  {ID} edge (course);
-		\node[attribute] (subject) [right of=course] {Name} edge (course);
-		\node[attribute] (marks) [below right of=course] {Marks} edge (course);
-		\node[entity] (department) [above right of=course] {Department} edge (batch);
-		\node[attribute] (departmentid) [above right of=department]  {ID} edge (department);
-		\node[attribute] (departmentname) [right of=department] {Name} edge (department);
-		\node[attribute] (batches) [right of=subject] {Batches} edge (department);
-	\end{tikzpicture}
+	\input{latex/er.tex}
 \section{Programs}
 	\begin{center}
 		\subsubsection*{\texttt{main.py}}

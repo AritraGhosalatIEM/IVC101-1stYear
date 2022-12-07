@@ -1,0 +1,51 @@
+\begin{tikzpicture}[node distance=20em]
+	\pic{entity={
+		{student}
+		{Student}{
+			\begin{tabular}{l|l}
+				PK&Student ID\\
+				&Name\\
+				&Class Roll Number\\
+				FK&Batch ID\\
+			\end{tabular}
+		}
+	}};
+	\pic[right of=student]{entity={
+		{batch}
+		{Batch}{
+			\begin{tabular}{l|l}
+				PK&Batch ID\\
+				&Batch Name\\
+				FK&Department Name\\
+				FK&List of Courses\\
+				FK&List of Students\\
+			\end{tabular}
+		}
+	}};
+	\pic[below=5em of student]{entity={
+		{course}
+		{Course}{
+			\begin{tabular}{l|l}
+				PK&Course ID\\
+				&Course Name\\
+				&Marks Obtained\\
+			\end{tabular}
+		}
+	}};
+	\pic[below=5em of batch]{entity={
+		{department}
+		{Department}{
+			\begin{tabular}{l|l}
+				PK&Department ID\\
+				&Name\\
+				FK&List of Batches\\
+			\end{tabular}
+		}
+	}};
+	\draw[many-one](student)--(batch);
+	\draw[many-many](student)--(course);
+	\draw[many-one](student)--(department);
+	\draw[many-one](batch)--(department);
+	\draw[many-omany](batch)--(course);
+	\draw[many-omany](department)--(course);
+\end{tikzpicture}
