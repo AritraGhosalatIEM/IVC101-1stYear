@@ -4,6 +4,27 @@ Sections=A\nB\nC\nD\nE\nF\nG\nH
 Students=50-70
 Courses=Physics Mathematics Biology Electrical Mechanics Python Design Entrepreneurship ESP SDP
 project:latex/project.tex latex/template.tex 
+	echo "\\subsubsection*{Command Line Interface}\n\\VerbatimInput[frame=lines,breaklines,breakanywhere]{outputs/output.log}" > latex/outputs.tex
+	for path in outputs/*-report_card.txt;do\
+		file=$$(basename "$$path");\
+		echo "\\subsubsection*{$$(echo $$file | sed 's/_/\\_/g')}\n\\\\fontsize{12pt}{\\\\baselineskip}\\selectfont\n\\VerbatimInput[frame=lines,breaklines,breakanywhere,]{outputs/$$file}\n \\\\fontsize{14pt}{\\\\baselineskip}\\selectfont" >> latex/outputs.tex;\
+	done
+	for path in outputs/Course\ Statistics-*.pdf;do\
+		file=$$(basename "$$path");\
+		echo "\\subsubsection*{$$file}\n\\includegraphics{outputs/$$file}" >> latex/outputs.tex;\
+	done
+	for path in outputs/Batch\ Statistics-*.pdf;do\
+		file=$$(basename "$$path");\
+		echo "\\subsubsection*{$$file}\n\\includegraphics{outputs/$$file}" >> latex/outputs.tex;\
+	done
+	for path in outputs/Department\ Statistics-*.pdf;do\
+		file=$$(basename "$$path");\
+		echo "\\subsubsection*{$$file}\n\\includegraphics{outputs/$$file}" >> latex/outputs.tex;\
+	done
+	for path in outputs/*Exam.pdf;do\
+		file=$$(basename "$$path");\
+		echo "\\subsubsection*{$$file}\n\\includegraphics{outputs/$$file}" >> latex/outputs.tex;\
+	done
 	-$(LATEX) -interaction=nonstopmode -shell-escape latex/project.tex
 	mv project.pdf F_28_Aritra\ Ghosal.pdf
 databases/student.csv:
@@ -71,5 +92,5 @@ clean_output:
 clean:
 	-rm -r project.aux project.log project.out _minted-project
 	-rm -r code/__pycache__
-all:project.pdf clean
+all:project clean
 .PHONY: clean all clean_data clean_output output data project

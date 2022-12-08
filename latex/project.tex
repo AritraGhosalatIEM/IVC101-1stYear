@@ -4,7 +4,6 @@
 \usepackage{dirtree}
 \usepackage{csvsimple}
 \usepackage{longtable}
-\usepackage{array}
 \usepackage{minted}
 \usemintedstyle{solarized-light}
 \usepackage{tikz}
@@ -68,6 +67,7 @@
 				.2 {latex}.
 				.3 {er-diagram.sty}.
 				.3 {er.tex}.
+				.3 {outputs.tex}.
 				.3 {project.tex}.
 				.3 {template.tex}.
 				.2 {Makefile}. 
@@ -94,6 +94,7 @@
 		\texttt{template.tex} sets the default values necessary for the project report.
 		\texttt{project.tex} contains the code that is compiled into the project report. It contains sources the outputs and diagrams along with the python code to include in the project report.\\
 		\texttt{er.tex} contains the er diagram for the database and \texttt{er-diagram.sty} is a third party library used to draw the er diagram.
+		\texttt{output.tex} is an automatically generated file which sources all of the plots into the final report.
 
 		The \texttt{Makefile} contains the build system for the entire project. It specifies the dependencies for each component and runs the commands to create each component. The \texttt{Makefile} also contains code that generates the databases and fills them with random data modelling the system as closely as possible. This is the centre point of the entire project, it determines the order and execution of everything else in the project.\\
 
@@ -185,27 +186,6 @@
 	\end{center}
 \section{Outputs}
 	\begin{center}
-		\subsubsection*{Command Line Interface}
-		\VerbatimInput[
-			frame=lines,
-			breaklines,
-			breakanywhere,
-		]{outputs/output.log}
-		\subsubsection*{ECE1330-report\_card.txt}
-		\fontsize{10pt}{\baselineskip}\selectfont
-		\VerbatimInput[
-			frame=lines,
-			breaklines,
-			breakanywhere,
-		]{outputs/ECE1330-report_card.txt}
-		\fontsize{14pt}{\baselineskip}\selectfont
-		\subsubsection*{Course Statistics-C006.pdf}
-		\includegraphics{outputs/Course Statistics-C006.pdf}
-		\subsubsection*{Batch Statistics-ECE97.pdf}
-		\includegraphics{outputs/Batch Statistics-ECE97.pdf}
-		\subsubsection*{Department Statistics-ECE.pdf}
-		\includegraphics{outputs/Department Statistics-ECE.pdf}
-		\subsubsection*{End Semester Exam.pdf}
-		\includegraphics{outputs/End Semester Exam.pdf}
+		\input{latex/outputs.tex}
 	\end{center}
 \end{document}
