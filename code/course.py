@@ -1,6 +1,7 @@
 from csv import reader,writer
 from collections import namedtuple
 from matplotlib.pyplot import hist,title,xlabel,ylabel,xticks,xlim,style,close,savefig
+Student=namedtuple("Student",('roll','name','marks'))
 def _parse_args(argdict):
     wrong_arg=Exception('Either provide course_id or course_name')
     if len(argdict)>1:raise wrong_arg
@@ -41,23 +42,21 @@ def create_course(**kwargs):
         for row in rows:db.writerow(row)
 def course_performance(**kwargs):
     rown,val=_parse_args(kwargs)
-    Student=namedtuple("Student",('roll','name','marks'))
     marks=False
     with open('databases/course.csv','r') as csvfile:
         for row in reader(csvfile):
-            if row[rown]==val:
-                marks=row[2].split('-')
+            if row[rown]==val and (perf:=row[2]):
+                marks=perf.split('-')
                 break
     if not marks:return -1
     with open('databases/student.csv','r') as csvfile:
         db=reader(csvfile)
         for perf in marks:
-            a=perf.index(':')
-            student_id=perf[:a]
+            student_id,mark=perf.split(':')
             for row in db:
                 if row[0]==student_id:
-                    yield Student(row[2],row[1],float(perf[a+1:]))
-                    csvfile.seek(0)#start from beginning
+                    yield Student(row[2],row[1],float(mark))
+                    csvfile.seek(0)
                     break
 def course_statistics(**kwargs):
     rown,val=_parse_args(kwargs)

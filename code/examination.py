@@ -42,12 +42,12 @@ class Examination:
                             total+=marks
                             exam_data[course][student]=marks
                             try:
-                                plot_data[course][batch_id]+=marks/(lcourses*lstudents)
+                                plot_data[course][batch_id]+=marks/lstudents
                             except KeyError:
                                 try:
-                                    plot_data[course][batch_id]=marks/(lcourses*lstudents)
+                                    plot_data[course][batch_id]=marks/lstudents
                                 except KeyError:
-                                    plot_data[course]={batch_id:marks/(lcourses*lstudents)}
+                                    plot_data[course]={batch_id:marks/lstudents}
                         self.student_performance.append(Student(student,total/lcourses))
         #save data
         with open('databases/course.csv','w') as csvfile:
@@ -71,6 +71,7 @@ class Examination:
                     batch_data.append(nan)
             self.courses.append(course)
             self.data.append(batch_data)
+        self.courses,self.data=tuple(zip(*((x,y) for x,y in sorted(zip(self.courses,self.data)))))#sort data
     def statistics(self):
         style.use('Solarize_Light2')
         xlabel('Average Marks')
