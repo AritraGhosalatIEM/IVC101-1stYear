@@ -50,6 +50,7 @@ def batch_averages(**kwargs):
                         break
             yield Batch(batch,total/(len(students)*len(courses)))
 def department_statistics(**kwargs):
+    close()
     def year(performance):
         a=float(performance.batch[-2:])
         if a>22:
@@ -64,4 +65,3 @@ def department_statistics(**kwargs):
     name=tuple(kwargs.values())[0]
     title(name)
     savefig(f'outputs/Department Statistics-{name}.pdf')
-    close()

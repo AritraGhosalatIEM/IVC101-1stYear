@@ -1,10 +1,9 @@
 LATEX=xelatex
-Departments=ECE\nIT\nCSE
+Departments=ECE\nIT\nCSE\nME
 Sections=A\nB\nC\nD\nE\nF\nG\nH
-Students=50-70
+Students=50-100
 Courses=Physics Mathematics Biology Electrical Mechanics Python Design Entrepreneurship ESP SDP
 project:latex/project.tex latex/template.tex 
-	echo "\\subsubsection*{Command Line Interface}\n\\VerbatimInput[frame=lines,breaklines,breakanywhere]{outputs/output.log}" > latex/outputs.tex
 	for path in outputs/*-report_card.txt;do\
 		file=$$(basename "$$path");\
 		echo "\\subsubsection*{$$(echo $$file | sed 's/_/\\_/g')}\n\\\\fontsize{12pt}{\\\\baselineskip}\\selectfont\n\\VerbatimInput[frame=lines,breaklines,breakanywhere,]{outputs/$$file}\n \\\\fontsize{14pt}{\\\\baselineskip}\\selectfont" >> latex/outputs.tex;\
@@ -81,15 +80,26 @@ databases/department.csv:databases/batch.csv
 	echo >> databases/department.csv
 	sed -i 's/:$$//' databases/department.csv
 data: databases/student.csv databases/course.csv databases/batch.csv databases/department.csv
-output:data code/batch.py code/course.py code/department.py code/examination.py code/main.py
-	script -c 'code/main.py' outputs/_output.log
-	head -n -2 outputs/_output.log | tail -n +2 | col -b > outputs/output.log
-	rm outputs/_output.log
+output:code/batch.py code/course.py code/department.py code/examination.py code/main.py
+	(code/main.py)&\
+	app=$$!;\
+	sleep 2;\
+	(window_id=$$(xdotool search --name Menu);\
+	xinput test-xi2 --root | \
+	grep --line-buffered RawKeyRelease |\
+	while read _;do\
+		maim "outputs/screenshots/$$(xdotool getwindowname $$window_id).png" -u -i $$window_id;\
+	done)&\
+	watch=$$!;\
+	wait $$app;\
+	kill $$watch
 clean_data:
 	rm databases/*
 clean_output:
-	rm outputs/*
+	rm outputs/screenshots/*
+	-rm outputs/*
 clean:
+	-rm latex/outputs.tex
 	-rm -r project.aux project.log project.out _minted-project
 	-rm -r code/__pycache__
 all:project clean

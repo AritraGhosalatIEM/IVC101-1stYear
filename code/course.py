@@ -59,6 +59,7 @@ def course_performance(**kwargs):
                     csvfile.seek(0)
                     break
 def course_statistics(**kwargs):
+    close()
     rown,val=_parse_args(kwargs)
     marks=False
     with open('databases/course.csv','r') as csvfile:
@@ -77,4 +78,3 @@ def course_statistics(**kwargs):
     xticks([25,55,65,75,85,95],['F','E','D','C','B','A'])
     xlim(100,0)
     savefig(f'outputs/Course Statistics-{val}.pdf')
-    close()

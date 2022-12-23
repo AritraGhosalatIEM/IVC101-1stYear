@@ -83,10 +83,13 @@ def remove_student(student_id):#remove by student id
         db=reader(csvfile)
         for row in db:
             if row[0] in courses:
-                marks=row[2]
-                a=marks.index(student_id)
-                b=marks.find('-',a)
-                row[2]=marks[:a-1]+marks[b:]
+                try:
+                    marks=row[2]
+                    a=marks.index(student_id)
+                    b=marks.find('-',a)
+                    row[2]=marks[:a-1]+marks[b:]
+                except ValueError:#no marks given
+                    continue
             rows.append(row)
     with open('databases/course.csv','w') as csvfile:
         db=writer(csvfile)

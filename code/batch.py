@@ -56,6 +56,7 @@ def batch_performance(**kwargs):
                 csvfile.seek(0)
                 yield Student(row[2],row[1],total/lexams)
 def batch_statistics(**kwargs):
+    close()
     slices,roll_numbers=[],[]
     for student in batch_performance(**kwargs):
         slices.append(student.percentage)
@@ -67,4 +68,3 @@ def batch_statistics(**kwargs):
     style.use('Solarize_Light2')
     pie(slices,labels=roll_numbers,shadow=True,frame=True)
     savefig(f'outputs/Batch Statistics-{name}.pdf')
-    close()
