@@ -1,5 +1,6 @@
 #!/bin/python3
 from tkinter import Tk,Frame,Button,Label,Entry,StringVar,DoubleVar,END
+from tkinter.ttk import Notebook
 from tkinter.scrolledtext import ScrolledText
 from PIL.Image import open as image_open
 from PIL.ImageTk import PhotoImage
@@ -15,15 +16,15 @@ from department import create_department,batches,batch_averages,department_stati
 from examination import Examination
 #---
 interface=Tk()
-interface.resizable(False,False)
 interface.title('Menu')
+interface.resizable(False,False)
 home_image=PhotoImage(image_open('images/home.png').resize((15,15)))
 plus_image=PhotoImage(image_open('images/plus.ico').resize((15,15)))
 minus_image=PhotoImage(image_open('images/minus.ico').resize((15,15)))
 #button functions
 def retrieve(var):
     val=var.get()
-    if val=='':raise Error('Empty Entry')
+    if val=='':raise Exception('Empty Entry')
     var.set('')
     return val
 def add_marks():
@@ -182,29 +183,34 @@ def exam():
     post_exam.pack()
     interface.title('Results')
 #menu
-menu=Frame(interface)
+menu=Notebook(interface)
+menu.add(student_tab:=Frame(menu),text='Student')
+menu.add(course_tab:=Frame(menu),text='Course')
+menu.add(batch_tab:=Frame(menu),text='Batch')
+menu.add(department_tab:=Frame(menu),text='Department')
+menu.add(exam_tab:=Frame(menu),text='Exam')
     #student
-Button(menu,text='Create Student',command=lambda:(menu.pack_forget(),student_creation.pack(),interface.title('Create Student'))).grid(column=0,row=0,sticky='nsew')
-Button(menu,text='Update Student',command=lambda:(menu.pack_forget(),student_update.pack(),interface.title('Update Student'))).grid(column=0,row=1,sticky='nsew')
-Button(menu,text='Remove Student',command=lambda:(menu.pack_forget(),student_removal.pack(),interface.title('Remove Student'))).grid(column=0,row=2,sticky='nsew')
-Button(menu,text='Generate Report',command=lambda:(menu.pack_forget(),report_generation.pack(),interface.title('Generate Report'))).grid(column=0,row=3,sticky='nsew')
+Button(student_tab,text='Create Student',command=lambda:(menu.pack_forget(),student_creation.pack(),interface.title('Create Student'))).grid(column=0,row=0,sticky='nsew')
+Button(student_tab,text='Update Student',command=lambda:(menu.pack_forget(),student_update.pack(),interface.title('Update Student'))).grid(column=1,row=0,sticky='nsew')
+Button(student_tab,text='Remove Student',command=lambda:(menu.pack_forget(),student_removal.pack(),interface.title('Remove Student'))).grid(column=0,row=1,sticky='nsew')
+Button(student_tab,text='Generate Report',command=lambda:(menu.pack_forget(),report_generation.pack(),interface.title('Generate Report'))).grid(column=1,row=1,sticky='nsew')
     #course
-Button(menu,text='Create Course',command=lambda:(menu.pack_forget(),course_creation.pack(),interface.title('Create Course'))).grid(column=1,row=0,sticky='nsew')
-Button(menu,text='View Course Performance',command=lambda:(menu.pack_forget(),course_perform.pack(),interface.title('Course Performance'))).grid(column=1,row=1,sticky='nsew')
-Button(menu,text='Course Statistics',command=lambda:(menu.pack_forget(),course_statisticize.pack(),interface.title('Course Statistics'))).grid(column=1,row=2,sticky='nsew')
+Button(course_tab,text='Create Course',command=lambda:(menu.pack_forget(),course_creation.pack(),interface.title('Create Course'))).grid(column=0,row=0,sticky='nsew')
+Button(course_tab,text='View Course Performance',command=lambda:(menu.pack_forget(),course_perform.pack(),interface.title('Course Performance'))).grid(column=1,row=0,sticky='nsew')
+Button(course_tab,text='Course Statistics',command=lambda:(menu.pack_forget(),course_statisticize.pack(),interface.title('Course Statistics'))).grid(columnspan=2,row=1,sticky='nsew')
     #batch
-Button(menu,text='Create Batch',command=lambda:(menu.pack_forget(),batch_creation.pack(),interface.title('Create Batch'))).grid(column=2,row=0,sticky='nsew')
-Button(menu,text='View Batch Students',command=lambda:(menu.pack_forget(),batch_students.pack(),interface.title('Batch Students'))).grid(column=2,row=1,sticky='nsew')
-Button(menu,text='View Batch Courses',command=lambda:(menu.pack_forget(),batch_courses.pack(),interface.title('Batch Courses'))).grid(column=2,row=2,sticky='nsew')
-Button(menu,text='View Batch Performance',command=lambda:(menu.pack_forget(),batch_performed.pack(),interface.title('Batch Performance'))).grid(column=2,row=3,sticky='nsew')
-Button(menu,text='Batch Pie Chart',command=lambda:(menu.pack_forget(),batch_statisticize.pack(),interface.title('Batch Pie Chart'))).grid(column=2,row=4,sticky='nsew')
+Button(batch_tab,text='Create Batch',command=lambda:(menu.pack_forget(),batch_creation.pack(),interface.title('Create Batch'))).grid(column=0,row=0,sticky='nsew')
+Button(batch_tab,text='View Batch Students',command=lambda:(menu.pack_forget(),batch_students.pack(),interface.title('Batch Students'))).grid(column=1,row=0,sticky='nsew')
+Button(batch_tab,text='View Batch Courses',command=lambda:(menu.pack_forget(),batch_courses.pack(),interface.title('Batch Courses'))).grid(column=0,row=1,sticky='nsew')
+Button(batch_tab,text='View Batch Performance',command=lambda:(menu.pack_forget(),batch_performed.pack(),interface.title('Batch Performance'))).grid(column=1,row=1,sticky='nsew')
+Button(batch_tab,text='Batch Pie Chart',command=lambda:(menu.pack_forget(),batch_statisticize.pack(),interface.title('Batch Pie Chart'))).grid(columnspan=2,row=2,sticky='nsew')
     #department
-Button(menu,text='Create Department',command=lambda:(menu.pack_forget(),department_creation.pack(),interface.title('Create Department'))).grid(column=3,row=0,sticky='nsew')
-Button(menu,text='View Department Batches',command=lambda:(menu.pack_forget(),department_batches.pack(),interface.title('Department Batches'))).grid(column=3,row=1,sticky='nsew')
-Button(menu,text='View Department Performance',command=lambda:(menu.pack_forget(),department_performance.pack(),interface.title('Department Performance'))).grid(column=3,row=2,sticky='nsew')
-Button(menu,text='Department Line Plot',command=lambda:(menu.pack_forget(),department_statisticize.pack(),interface.title('Department Line Plot'))).grid(column=3,row=3,sticky='nsew')
+Button(department_tab,text='Create Department',command=lambda:(menu.pack_forget(),department_creation.pack(),interface.title('Create Department'))).grid(column=0,row=0,sticky='nsew')
+Button(department_tab,text='View Department Batches',command=lambda:(menu.pack_forget(),department_batches.pack(),interface.title('Department Batches'))).grid(column=1,row=0,sticky='nsew')
+Button(department_tab,text='View Department Performance',command=lambda:(menu.pack_forget(),department_performance.pack(),interface.title('Department Performance'))).grid(column=0,row=1,sticky='nsew')
+Button(department_tab,text='Department Line Plot',command=lambda:(menu.pack_forget(),department_statisticize.pack(),interface.title('Department Line Plot'))).grid(column=1,row=1,sticky='nsew')
     #examination
-Button(menu,text='Take Exam',command=lambda:(menu.pack_forget(),hold_exam.pack(),interface.title('Hold Exam'))).grid(column=0,columnspan=4,row=5,sticky='nsew')
+Button(exam_tab,text='Take Exam',command=lambda:(menu.pack_forget(),hold_exam.pack(),interface.title('Hold Exam'))).grid(columnspan=2,sticky='nsew')
 #entry variables
 student_id=StringVar();student_name=StringVar();roll_no=StringVar();batch_id=StringVar()
 course_id=StringVar();course_name=StringVar()
